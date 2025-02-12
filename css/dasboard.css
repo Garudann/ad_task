@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    background: url(https://png.pngtree.com/thumb_back/fw800/background/20240731/pngtree-beautiful-night-sky-with-stars-image_15938132.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.sidebar {
+    width: 250px;
+    background: transparent;
+    color: black;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.sidebar:hover {
+    width: 300px;
+    backdrop-filter: blur(5px);
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin: 20px 0;
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 24px;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-left: 5px solid transparent;
+}
+
+.sidebar ul li:hover {
+    background: transparent;
+    border-left: 8px solid #02416b;
+    padding-left: 40px;
+    font-size: 23px;
+    color: #fff;
+    backdrop-filter: blur(50px);
+}
+
+.sidebar ul li i {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    overflow-y: auto;
+    background: transparent;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: transparent;
+    border-radius: 8px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+    animation: slideIn 0.5s forwards;
+}
+.Header:hover{
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+}
+
+.header h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #d0d7df;
+}
+
+.header .user {
+    display: flex;
+    align-items: center;
+}
+.user:hover{
+    color: white;
+    cursor: pointer;
+}
+
+.header .user img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.header .user span {
+    font-size: 16px;
+    color: #b9c1ca;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    animation: fadeInUp 0.8s forwards;
+}
+
+.card {
+    width: 24%;
+    background-color: #2b98c491;
+    backdrop-filter: blur(50%);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px ;
+    padding: 20px;
+    transition: all 0.3s ease;
+    border-color: black;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 50px 12px rgba(2, 2, 0, 0.274);
+
+}
+
+.card h3 {
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 14px;
+    color: black;
+}
