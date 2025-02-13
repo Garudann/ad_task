@@ -32,3 +32,28 @@
     <script src="js/login.js"></script>
 </body>
 </html>
+<!-- <?php
+    
+    // session_start();
+    // if(isset($_POST['signin']))
+    // {
+    // $Username=$_POST['Username'];
+    // $password=md5($_POST['password']);
+    // $sql ="SELECT Username,Password FROM tblusers WHERE Username=:Username and Password=:password";
+    // $query= $dbh -> prepare($sql);
+    // $query-> bindParam(':Username', $Username, PDO::PARAM_STR);
+    // $query-> bindParam(':password', $password, PDO::PARAM_STR);
+    // $query-> execute();
+    // $results=$query->fetchAll(PDO::FETCH_OBJ);
+    // if($query->rowCount() > 0)
+    // {
+    // $_SESSION['login']=$_POST['Username'];
+    // echo "<script type='text/javascript'> document.location = 'dashboard.php'; </script>";
+    // } else{
+        
+    //     echo "<script>alert('Invalid Details');</script>";
+    
+    // } 
+    
+    // }
+?> -->
