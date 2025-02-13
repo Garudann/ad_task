@@ -11,5 +11,14 @@
     <?php
     include ('includes/sidebar.php');
     ?>
+    <div class="main-content">
+        <div class="header">
+            <h1>Welcome, Gokul K</h1>
+            <div class="user">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User Avatar">
+                <span>Gokul</span>
+            </div>
+        </div>
+        </div>
 </body>
 </html>
