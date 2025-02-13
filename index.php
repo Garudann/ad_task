@@ -29,5 +29,6 @@
         </form>
         <p id="loginStatus"></p>
     </div>
+    <script src="js/login.js"></script>
 </body>
 </html>
