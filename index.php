@@ -8,16 +8,16 @@
 </head>
 <body>
     <div class="wrapper">
-        <form id="login_form" method="post" action="login.php">
+        <form id="login_form" method="POST" action="login.php">
             <h1>Login</h1>
             <div class="input-box">
-                <label for="username">Username</label>
-                <input type="text" name="username" id="username" placeholder="Username" autocomplete="off" autocorrect="off" autocapitalize="none" required>
+                <label for="Username"></label>
+                <input type="text" name="username" id="username" placeholder="Username" autocomplete="off" autocorrect="off" autocapitalize="none">
                 <i class='bx bxs-user'></i>
             </div>
             <div class="input-box">
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password" placeholder="Password" required>
+                <label for="Password"></label>
+                <input type="password" name="password" id="password" placeholder="Password">
                 <i class='bx bxs-lock-alt'></i>
             </div>
             <div class="remember-forgot">

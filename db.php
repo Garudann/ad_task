@@ -1,7 +1,7 @@
 <?php
 // Database credentials
 $server = '127.0.0.1'; // or the database server's IP address
-$dbname = 'task';
+$dbname = 'project1';
 $username = 'root';
 $password = '';
 
