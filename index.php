@@ -12,12 +12,12 @@
             <h1>Login</h1>
             <div class="input-box">
                 <label for="Username"></label>
-                <input type="text" name="username" id="username" placeholder="Username" autocomplete="off" autocorrect="off" autocapitalize="none">
+                <input type="text" name="username" id="Username" placeholder="Username" autocomplete="off" autocorrect="off" autocapitalize="none">
                 <i class='bx bxs-user'></i>
             </div>
             <div class="input-box">
                 <label for="Password"></label>
-                <input type="password" name="password" id="password" placeholder="Password">
+                <input type="password" name="password" id="Password" placeholder="Password">
                 <i class='bx bxs-lock-alt'></i>
             </div>
             <div class="remember-forgot">
