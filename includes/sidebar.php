@@ -6,7 +6,9 @@
             <li onclick="window.location.href='analystics.php'"><i class="fas fa-chart-line"></i> Analytics</li>
             <li onclick="window.location.href='profile.php'"><i class="fas fa-user"></i> User Profile</li>
             <li onclick="window.location.href='settings.php'"><i class="fas fa-cog"></i> Settings</li>
-            <li onclick="window.location.href='index.php'"><i class="fas fa-sign-out-alt"></i> Logout</li>
+            <li onclick="window.location.href='logout.php'">
+    <i class="fas fa-sign-out-alt"></i> Logout
+</li>
         </ul>
     </div>
     <style>
