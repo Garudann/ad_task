@@ -10,8 +10,9 @@
 </head>
 <body>
     <?php
-    include ('includes/sidebar.php');
     session_start();
+    include ('includes/sidebar.php');
+    
 
     if (!isset($_SESSION['login'])) {
     // User is not logged in, redirect to login page
@@ -22,6 +23,11 @@
     exit();
     }
     ?>
+    <!-- <?php
+    session_start();
+    echo "<h2>Your Profile Value: " . htmlspecialchars($_SESSION['profile']) . "</h2>";
+    ?> -->
+
     <div class="main-content">
         <div class="header">
         <h1>Welcome, <?php echo isset($_SESSION['login']) ? ucfirst(htmlspecialchars($_SESSION['login'])) : 'Guest'; ?></h1>

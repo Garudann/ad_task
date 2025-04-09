@@ -10,8 +10,8 @@
 </head>
 <body>
     <?php
-    include ('includes/sidebar.php');
     session_start();
+    include ('includes/sidebar.php');
 
     if (!isset($_SESSION['login'])) {
     // User is not logged in, redirect to login page
