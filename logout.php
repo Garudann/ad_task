@@ -1,16 +1,14 @@
 <?php
-session_start();
-
-// Unset all session variables
-$_SESSION = [];
-
-// Destroy the session
-session_destroy();
-
-// Optional: Redirect to login page with a message
-echo "<script>
-    // alert('You have been logged out.');
-    window.location.href = 'index.php';
-</script>";
-exit();
+session_start(); 
+$_SESSION = array();
+if (ini_get("session.use_cookies")) {
+    $params = session_get_cookie_params();
+    setcookie(session_name(), '', time() - 60*60,
+        $params["path"], $params["domain"],
+        $params["secure"], $params["httponly"]
+    );
+}
+unset($_SESSION['login']);
+session_destroy(); // destroy session
+header("location:index.php"); 
 ?>
