@@ -23,10 +23,10 @@
     ?>
     <div class="main-content">
         <div class="header">
-            <h1>Welcome, Gokul K</h1>
+            <h1>Welcome, <?php echo isset($_SESSION['login']) ? htmlspecialchars($_SESSION['login']) : 'Guest'; ?></h1>
             <div class="user">
                 <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User Avatar">
-                <span>Gokul</span>
+                <span><?php echo isset($_SESSION['login']) ? htmlspecialchars($_SESSION['login']) : 'Guest'; ?></span>
             </div>
         </div>
         </div>
