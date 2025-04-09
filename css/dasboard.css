@@ -48,9 +48,10 @@ body {
 .header .user {
     display: flex;
     align-items: center;
+    color: white;
 }
 .user:hover{
-    color: white;
+    /* color: white; */
     cursor: pointer;
 }
 
