@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+    <title>User</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/dasboard.css">
     <link rel="stylesheet" href="css/createuser.css">
@@ -32,38 +32,51 @@
                 <span style= "font-size: 18px"><?php echo isset($_SESSION['login']) ? ucfirst(htmlspecialchars($_SESSION['login'])) : 'Guest'; ?></span>
             </div>
         </div>
-        <form class="get-user" method="POST">
-            <table>
-                <tr>
-                    <th>Lables</th>
-                    <th>Provide byou details</th>
-                </tr>
-                <tr>
-                    <td>ID</td>
-                    <td><input type="text"> </td>
-                </tr>
-                <tr>
-                    <td>First name</td>
-                    <td><input type="text"> </td>
-                </tr>
-                <tr>
-                    <td>Employee Code</td>
-                    <td><input type="text"> </td>
-                </tr>
-                <tr>
-                    <td>Username</td>
-                    <td><input type="text"> </td>
-                </tr>
-                <tr>
-                    <td>Password</td>
-                    <td><input type="password"> </td>
-                </tr>
-                <tr>
-                    <td>Confirm password</td>
-                    <td><input type="password"> </td>
-                </tr>
-            </table>
-    </form>
+        <form class="get-user" method="POST" onsubmit="return validatepasswords()">
+    <table style="border= none;">
+        <tr>
+            <th>Labels</th>
+            <th>Provide Your Details</th>
+        </tr>
+        <tr>
+            <td><label for="id">ID</label></td>
+            <td><input type="number" id="id" name="id" autocomplete="off" required></td>
+        </tr>
+        <tr>
+            <td><label for="firstName">First Name</label></td>
+            <td><input type="text" id="firstName" name="firstName" autocomplete="off" required></td>
+        </tr>
+        <tr>
+            <td><label for="employeeCode">Employee Code</label></td>
+            <td><input type="text" id="employeeCode" name="employeeCode" autocomplete="off" required></td>
+        </tr>
+        <tr>
+            <td><label for="username">Username</label></td>
+            <td><input type="text" id="username" name="username" autocomplete="off" required></td>
+        </tr>
+        <tr>
+            <td><label for="password">Password</label></td>
+            <td><input type="password" id="password" name="password" autocomplete="off" required></td>
+        </tr>
+        <tr>
+            <td><label for="confirmPassword">Confirm Password</label></td>
+            <td><input type="password" id="confirmPassword" name="confirmPassword" autocomplete="off" required></td>
+        </tr>
+    </table>
+    <button type="submit" class="submit-btn">Submit</button>
+    <script>
+    function validatePasswords() {
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
+
+    if (password !== confirmPassword) {
+        alert('Passwords do not match. Please try again.');
+        return false; // Prevents form submission
+    }
+    return true; // Allows form submission if passwords match
+}
+</script>
+</form>
     </div>
 </body>
 </html>

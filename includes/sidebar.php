@@ -7,7 +7,7 @@
             <li onclick="window.location.href='profile.php'"><i class="fas fa-user"></i> User Profile</li>
             <li onclick="window.location.href='settings.php'"><i class="fas fa-cog"></i> Settings</li>
             <?php if (isset($_SESSION['profile']) && $_SESSION['profile'] == 0): ?>
-                <li onclick="window.location.href='createuser.php'"><i class="fa fa-plus-square" aria-hidden="true"></i> Users</li>
+                <li onclick="window.location.href='createuser.php'"><i class="fa fa-plus-square" aria-hidden="true"></i>Manage Users</li>
             <?php endif; ?>
 
             <li onclick="window.location.href='logout.php'"><i class="fas fa-sign-out-alt"></i>Logout</li>
