@@ -38,10 +38,10 @@
             <th>Labels</th>
             <th>Provide Your Details</th>
         </tr>
-        <!-- <tr>
+        <tr>
             <td><label for="id">ID</label></td>
             <td><input type="number" id="id" name="id" autocomplete="off" required></td>
-        </tr> -->
+        </tr>
         <tr>
             <td><label for="firstName">First Name</label></td>
             <td><input type="text" id="firstName" name="firstName" autocomplete="off" required></td>
@@ -80,3 +80,21 @@
     </div>
 </body>
 </html>
+<?php
+error_reporting(0);
+if(isset($_POST['submit']))
+{
+    $id=$_POST['id'];
+    $firstName=$_POST['firstName'];
+    $employeeCode=$_POST['employeeCode'];
+    $username=$_POST['username'];
+    $password=$_POST['password'];
+    $confirmPassword=$_POST['confirmPassword'];
+    $sql="INSERT INTO users VALUES (:id, :firstName, :employeeCode, :username, :password, :confirmPassword)";
+    $query->bindParam(':id',$id,PDO::PARAM_STR);
+    $query->bindParam(':firstName',$firstName,PDO::PARAM_STR);
+    $query->bindParam(':employeeCode',$employeeCode,PDO::PARAM_STR);
+    $query->bindParam(':username',$username,PDO::PARAM_STR);
+    $query->bindParam(':password',$password,PDO::PARAM_STR);
+    $query->bindParam(':confirmPassword',$confirmPassword,PDO::PARAM_STR);
+}
