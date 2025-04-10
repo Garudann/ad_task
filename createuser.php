@@ -32,16 +32,16 @@
                 <span style= "font-size: 18px"><?php echo isset($_SESSION['login']) ? ucfirst(htmlspecialchars($_SESSION['login'])) : 'Guest'; ?></span>
             </div>
         </div>
-        <form class="get-user" method="POST" onsubmit="return validatepasswords()">
+        <form class="get-user" method="POST" onsubmit="validatePasswords()">
     <table style="border= none;">
         <tr>
             <th>Labels</th>
             <th>Provide Your Details</th>
         </tr>
-        <tr>
+        <!-- <tr>
             <td><label for="id">ID</label></td>
             <td><input type="number" id="id" name="id" autocomplete="off" required></td>
-        </tr>
+        </tr> -->
         <tr>
             <td><label for="firstName">First Name</label></td>
             <td><input type="text" id="firstName" name="firstName" autocomplete="off" required></td>
@@ -66,15 +66,15 @@
     <button type="submit" class="submit-btn">Submit</button>
     <script>
     function validatePasswords() {
-    const password = document.getElementById('password').value;
-    const confirmPassword = document.getElementById('confirmPassword').value;
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
 
-    if (password !== confirmPassword) {
-        alert('Passwords do not match. Please try again.');
-        return false; // Prevents form submission
+        if (password !== confirmPassword) {
+            alert('Passwords do not match. Please try again.');
+            return false; // Prevents form submission
+        }
+        return true; // Allows form submission if passwords match
     }
-    return true; // Allows form submission if passwords match
-}
 </script>
 </form>
     </div>
