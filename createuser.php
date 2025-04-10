@@ -90,11 +90,12 @@ if(isset($_POST['submit']))
     $username=$_POST['username'];
     $password=$_POST['password'];
     $confirmPassword=$_POST['confirmPassword'];
-    $sql="INSERT INTO users VALUES (:id, :firstName, :employeeCode, :username, :password, :confirmPassword)";
+    $sql="INSERT INTO users VALUES (:id, :firstName, :employeeCode, :username, :password,)";
     $query->bindParam(':id',$id,PDO::PARAM_STR);
     $query->bindParam(':firstName',$firstName,PDO::PARAM_STR);
     $query->bindParam(':employeeCode',$employeeCode,PDO::PARAM_STR);
     $query->bindParam(':username',$username,PDO::PARAM_STR);
     $query->bindParam(':password',$password,PDO::PARAM_STR);
     $query->bindParam(':confirmPassword',$confirmPassword,PDO::PARAM_STR);
+    $query->execute()
 }
