@@ -32,16 +32,16 @@
                 <span style= "font-size: 18px"><?php echo isset($_SESSION['login']) ? ucfirst(htmlspecialchars($_SESSION['login'])) : 'Guest'; ?></span>
             </div>
         </div>
-        <form class="get-user" method="POST" onsubmit="validatePasswords()">
+        <form class="get-user" method="POST" onsubmit="return validatePasswords()">
     <table style="border= none;">
         <tr>
             <th>Labels</th>
             <th>Provide Your Details</th>
         </tr>
-        <tr>
+        <!-- <tr>
             <td><label for="id">ID</label></td>
             <td><input type="number" id="id" name="id" autocomplete="off" required></td>
-        </tr>
+        </tr> -->
         <tr>
             <td><label for="firstName">First Name</label></td>
             <td><input type="text" id="firstName" name="firstName" autocomplete="off" required></td>
@@ -62,8 +62,15 @@
             <td><label for="confirmPassword">Confirm Password</label></td>
             <td><input type="password" id="confirmPassword" name="confirmPassword" autocomplete="off" required></td>
         </tr>
+        <tr>
+            <td><label for="profile">Profile Settings</label></td>
+            <td><select name="profile" id="profile">
+                <option value="1">User</option>
+                <option value="0">Admin</option>
+            </select></td>
+        </tr>
     </table>
-    <button type="submit" class="submit-btn">Submit</button>
+    <button type="submit" class="submit-btn" name="submit">SUBMIT</button>
     <script>
     function validatePasswords() {
         const password = document.getElementById('password').value;
@@ -81,21 +88,33 @@
 </body>
 </html>
 <?php
+// session_start();
+// include 'db.php';
 error_reporting(0);
-if(isset($_POST['submit']))
-{
-    $id=$_POST['id'];
-    $firstName=$_POST['firstName'];
-    $employeeCode=$_POST['employeeCode'];
-    $username=$_POST['username'];
-    $password=$_POST['password'];
-    $confirmPassword=$_POST['confirmPassword'];
-    $sql="INSERT INTO users VALUES (:id, :firstName, :employeeCode, :username, :password,)";
-    $query->bindParam(':id',$id,PDO::PARAM_STR);
-    $query->bindParam(':firstName',$firstName,PDO::PARAM_STR);
-    $query->bindParam(':employeeCode',$employeeCode,PDO::PARAM_STR);
-    $query->bindParam(':username',$username,PDO::PARAM_STR);
-    $query->bindParam(':password',$password,PDO::PARAM_STR);
-    $query->bindParam(':confirmPassword',$confirmPassword,PDO::PARAM_STR);
-    $query->execute()
+if (isset($_POST['submit'])) {
+    $firstName = $_POST['firstName'];
+    $employeeCode = $_POST['employeeCode'];
+    $username = $_POST['username'];
+    $password = $_POST['password']; // plain text (not secure)
+    $profile = $_POST['profile'];
+
+    $sql = "INSERT INTO users (firstName, employeeCode, username, password, profile)
+            VALUES (:firstName, :employeeCode, :username, :password, :profile)";
+    $query = $dbh->prepare($sql);
+    $query->bindParam(':firstName', $firstName, PDO::PARAM_STR);
+    $query->bindParam(':employeeCode', $employeeCode, PDO::PARAM_STR);
+    $query->bindParam(':username', $username, PDO::PARAM_STR);
+    $query->bindParam(':password', $password, PDO::PARAM_STR);
+    $query->bindParam(':profile', $profile, PDO::PARAM_STR);
+
+    $query->execute();
+    $lastinsert = $dbh->lastInsertId();
+
+    if ($lastinsert) {
+        $_SESSION['msg'] = 'You have registered successfully';
+    } else {
+        $_SESSION['msg'] = 'Something went wrong, please try again.';
+        return;
+    }
 }
+?>

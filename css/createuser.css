@@ -69,3 +69,20 @@ button.submit-btn {
 button.submit-btn:hover{
     background-color: rgb(149, 149, 194);
 }
+select {
+    background-color: transparent;
+    width: 170%;
+    height: 65px;
+    backdrop-filter: blur(4px);
+    padding: 5px;
+    font-size: 1rem;
+    border-radius: 40px;
+    font-weight: 50px;
+    font-size: large;
+}
+
+select, option{
+    color: #080808;
+    background-color: transparent;
+    border-radius: 40px;
+}
