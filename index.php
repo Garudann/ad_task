@@ -1,3 +1,19 @@
+<?php
+session_start();
+
+// Destroy session data
+session_unset();
+session_destroy();
+
+// Clear cookies (if you stored login info in them)
+if (isset($_COOKIE['username'])) {
+    setcookie('username', '', time() - 3600, '/');
+}
+if (isset($_COOKIE['password'])) {
+    setcookie('password', '', time() - 3600, '/');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
