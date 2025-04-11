@@ -81,8 +81,27 @@ select {
     font-size: large;
 }
 
-select, option{
-    color: #080808;
-    background-color: transparent;
+select, option {
+    color: #000000; /* Text color - red */
+    background-color: transparent; /* Dark blue background */
+    border: 1px solid #ffffff; /* Border to match text */
     border-radius: 40px;
+    padding: 8px 16px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    appearance: none; /* Clean browser default dropdown arrow */
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 0 10px rgba(204, 0, 0, 0.3);
+}
+
+select:hover {
+    background-color: #112240; /* Slightly lighter blue on hover */
+    box-shadow: 0 0 10px rgba(204, 0, 0, 0.3);
+}
+
+select:focus {
+    outline: none;
+    border-color: #a29292;
+    box-shadow: 0 0 8px rgba(204, 0, 0, 0.6);
 }
