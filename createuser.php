@@ -11,7 +11,8 @@
 </head>
 <body>
     <?php
-    session_start();
+        session_start();
+        include 'db.php';
         include ('includes/sidebar.php');
         
 
@@ -88,8 +89,6 @@
 </body>
 </html>
 <?php
-// session_start();
-// include 'db.php';
 error_reporting(0);
 if (isset($_POST['submit'])) {
     $firstName = $_POST['firstName'];
