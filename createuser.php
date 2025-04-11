@@ -14,6 +14,14 @@
     <?php
         session_start();
         include 'db.php';
+        if (!isset($_SESSION['login'])) {
+            // User is not logged in, redirect to login page
+            echo "<script>
+                alert('Please log in first.');
+                window.location.href = 'index.php';
+            </script>";
+            exit();
+        }
         include ('includes/sidebar.php');
     ?>
     <div class="main-content">
