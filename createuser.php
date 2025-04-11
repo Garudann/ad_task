@@ -10,20 +10,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
+    
     <?php
         session_start();
         include 'db.php';
         include ('includes/sidebar.php');
-        
-
-        if (!isset($_SESSION['login'])) {
-        // User is not logged in, redirect to login page
-        echo "<script>
-            alert('Please log in first.');
-            window.location.href = 'index.php';
-        </script>";
-        exit();
-        }
     ?>
     <div class="main-content">
         <div class="header">
@@ -89,31 +80,31 @@
 </body>
 </html>
 <?php
-error_reporting(0);
-if (isset($_POST['submit'])) {
-    $firstName = $_POST['firstName'];
-    $employeeCode = $_POST['employeeCode'];
-    $username = $_POST['username'];
-    $password = $_POST['password']; // plain text (not secure)
-    $profile = $_POST['profile'];
+    error_reporting(0);
+    if (isset($_POST['submit'])) {
+        $firstName = $_POST['firstName'];
+        $employeeCode = $_POST['employeeCode'];
+        $username = $_POST['username'];
+        $password = $_POST['password']; // plain text (not secure)
+        $profile = $_POST['profile'];
 
-    $sql = "INSERT INTO users (firstName, employeeCode, username, password, profile)
-            VALUES (:firstName, :employeeCode, :username, :password, :profile)";
-    $query = $dbh->prepare($sql);
-    $query->bindParam(':firstName', $firstName, PDO::PARAM_STR);
-    $query->bindParam(':employeeCode', $employeeCode, PDO::PARAM_STR);
-    $query->bindParam(':username', $username, PDO::PARAM_STR);
-    $query->bindParam(':password', $password, PDO::PARAM_STR);
-    $query->bindParam(':profile', $profile, PDO::PARAM_STR);
+        $sql = "INSERT INTO users (firstName, employeeCode, username, password, profile)
+                VALUES (:firstName, :employeeCode, :username, :password, :profile)";
+        $query = $dbh->prepare($sql);
+        $query->bindParam(':firstName', $firstName, PDO::PARAM_STR);
+        $query->bindParam(':employeeCode', $employeeCode, PDO::PARAM_STR);
+        $query->bindParam(':username', $username, PDO::PARAM_STR);
+        $query->bindParam(':password', $password, PDO::PARAM_STR);
+        $query->bindParam(':profile', $profile, PDO::PARAM_STR);
 
-    $query->execute();
-    $lastinsert = $dbh->lastInsertId();
+        $query->execute();
+        $lastinsert = $dbh->lastInsertId();
 
-    if ($lastinsert) {
-        $_SESSION['msg'] = 'You have registered successfully';
-    } else {
-        $_SESSION['msg'] = 'Something went wrong, please try again.';
-        return;
+        if ($lastinsert) {
+            $_SESSION['msg'] = 'You have registered successfully';
+        } else {
+            $_SESSION['msg'] = 'Something went wrong, please try again.';
+            return;
+        }
     }
-}
 ?>
