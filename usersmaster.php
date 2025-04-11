@@ -69,7 +69,6 @@ $results = $query->fetchAll(PDO::FETCH_OBJ);
         th, td {
             border-collapse: collapse;
         }
-
     </style>
 </head>
 <body>
@@ -83,6 +82,16 @@ $results = $query->fetchAll(PDO::FETCH_OBJ);
         </div>
 
         <div class="container">
+        <input type="text" id="searchInput" placeholder="Search by name, code, username..." style="
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 1px solid #39557a;
+            background-color: #112240;
+            color: white;
+            font-size: 16px;
+        ">
             <h2>All Users</h2>
             <table>
                 <tr>
@@ -108,5 +117,18 @@ $results = $query->fetchAll(PDO::FETCH_OBJ);
             </table>
         </div>
     </div>
+    <script>
+    const searchInput = document.getElementById("searchInput");
+    searchInput.addEventListener("keyup", function () {
+        const filter = searchInput.value.toLowerCase();
+        const rows = document.querySelectorAll("table tr:not(:first-child)");
+
+        rows.forEach(row => {
+            const text = row.innerText.toLowerCase();
+            row.style.display = text.includes(filter) ? "" : "none";
+        });
+    });
+</script>
+
 </body>
 </html>
