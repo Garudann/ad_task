@@ -32,46 +32,47 @@
                 <i class="fas fa-user" style= "padding-right: 15px; font-size: 23px"></i>
                 <span style= "font-size: 18px"><?php echo isset($_SESSION['login']) ? ucfirst(htmlspecialchars($_SESSION['login'])) : 'Guest'; ?></span>
             </div>
-        </div>
+    </div>
         <form class="get-user" method="POST" onsubmit="return validatePasswords()">
-    <table style="border= none;">
-        <tr>
-            <th>Labels</th>
-            <th>Provide Your Details</th>
-        </tr>
-        <!-- <tr>
-            <td><label for="id">ID</label></td>
-            <td><input type="number" id="id" name="id" autocomplete="off" required></td>
-        </tr> -->
-        <tr>
-            <td><label for="firstName">First Name</label></td>
-            <td><input type="text" id="firstName" name="firstName" autocomplete="off" required></td>
-        </tr>
-        <tr>
-            <td><label for="employeeCode">Employee Code</label></td>
-            <td><input type="text" id="employeeCode" name="employeeCode" autocomplete="off" required></td>
-        </tr>
-        <tr>
-            <td><label for="username">Username</label></td>
-            <td><input type="text" id="username" name="username" autocomplete="off" required></td>
-        </tr>
-        <tr>
-            <td><label for="password">Password</label></td>
-            <td><input type="password" id="password" name="password" autocomplete="off" required></td>
-        </tr>
-        <tr>
-            <td><label for="confirmPassword">Confirm Password</label></td>
-            <td><input type="password" id="confirmPassword" name="confirmPassword" autocomplete="off" required></td>
-        </tr>
-        <tr>
-            <td><label for="profile">Profile Settings</label></td>
-            <td><select name="profile" id="profile">
-                <option value="1" selected>User</option>
-                <option value="0">Admin</option>
-            </select></td>
-        </tr>
-    </table>
+            <table style="border= none;">
+                <tr>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <!-- <tr>
+                    <td><label for="id">ID</label></td>
+                    <td><input type="number" id="id" name="id" autocomplete="off" required></td>
+                </tr> -->
+                <tr>
+                    <td><label for="firstName">First Name</label></td>
+                    <td><input type="text" id="firstName" name="firstName" autocomplete="off" required></td>
+                </tr>
+                <tr>
+                    <td><label for="employeeCode">Employee Code</label></td>
+                    <td><input type="text" id="employeeCode" name="employeeCode" autocomplete="off" required></td>
+                </tr>
+                <tr>
+                    <td><label for="username">Username</label></td>
+                    <td><input type="text" id="username" name="username" autocomplete="off" required></td>
+                </tr>
+                <tr>
+                    <td><label for="password">Password</label></td>
+                    <td><input type="password" id="password" name="password" autocomplete="off" required></td>
+                </tr>
+                <tr>
+                    <td><label for="confirmPassword">Confirm Password</label></td>
+                    <td><input type="password" id="confirmPassword" name="confirmPassword" autocomplete="off" required></td>
+                </tr>
+                <tr>
+                    <td><label for="profile">Profile Settings</label></td>
+                    <td><select name="profile" id="profile">
+                        <option value="1" selected>User</option>
+                        <option value="0">Admin</option>
+                    </select></td>
+                </tr>
+            </table>
     <button type="submit" class="submit-btn" name="submit">SUBMIT</button>
+    </div>
     <script>
     function validatePasswords() {
         const password = document.getElementById('password').value;
@@ -85,7 +86,6 @@
     }
 </script>
 </form>
-    </div>
 </body>
 </html>
 <?php
