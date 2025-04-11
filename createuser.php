@@ -101,9 +101,9 @@
         $lastinsert = $dbh->lastInsertId();
 
         if ($lastinsert) {
-            $_SESSION['msg'] = 'You have registered successfully';
+            echo "<script>alert('User inserted successfully!');</script>";
         } else {
-            $_SESSION['msg'] = 'Something went wrong, please try again.';
+            echo "<script>alert('Error while inserting. Please try again.');</script>";
             return;
         }
     }
