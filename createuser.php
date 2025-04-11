@@ -70,7 +70,7 @@
         const confirmPassword = document.getElementById('confirmPassword').value;
 
         if (password !== confirmPassword) {
-            alert('Passwords do not match. Please try again.');
+            alert('Passwords does not match. Please try again.');
             return false; // Prevents form submission
         }
         return true; // Allows form submission if passwords match
