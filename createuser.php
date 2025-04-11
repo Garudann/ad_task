@@ -101,9 +101,9 @@
         $lastinsert = $dbh->lastInsertId();
 
         if ($lastinsert) {
-            echo "<script>alert('User inserted successfully!');</script>";
+            echo "<script>alert('User created successfully!');</script>";
         } else {
-            echo "<script>alert('Error while inserting. Please try again.');</script>";
+            echo "<script>alert('Somwthing went wrong. Please try again.');</script>";
             return;
         }
     }
