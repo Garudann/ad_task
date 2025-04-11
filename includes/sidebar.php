@@ -7,12 +7,27 @@
             <li onclick="window.location.href='profile.php'"><i class="fas fa-user"></i> User Profile</li>
             <li onclick="window.location.href='settings.php'"><i class="fas fa-cog"></i> Settings</li>
             <?php if (isset($_SESSION['profile']) && $_SESSION['profile'] == 0): ?>
-                <li onclick="window.location.href='createuser.php'"><i class="fa fa-plus-square" aria-hidden="true"></i>Manage Users</li>
-            <?php endif; ?>
+            <li class="dropdown">
+                <div class="dropdown-toggle" onclick="toggleDropdown()">
+                    <i class="fa fa-plus-square" aria-hidden="true"></i> Manage Users
+                </div>
+                <ul class="dropdown-menu" id="userDropdown">
+                    <li onclick="window.location.href='createuser.php'">Add User</li>
+                    <li onclick="window.location.href='usersmaster.php'">View Users</li>
+                    <!-- Add more submenu items here -->
+                </ul>
+            </li>
+<?php endif; ?>
 
             <li onclick="window.location.href='logout.php'"><i class="fas fa-sign-out-alt"></i>Logout</li>
         </ul>
 </div>
+<script>
+function toggleDropdown() {
+    var menu = document.getElementById("userDropdown");
+    menu.style.display = (menu.style.display === "block") ? "none" : "block";
+}
+</script>
     <style>
         .sidebar {
             width: 250px;
@@ -64,5 +79,31 @@
         body{
             padding:0px
         }
+        .dropdown {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .dropdown-menu {
+            display: none;
+            list-style: none;
+            padding: 0;
+            margin: 5px 0 0 20px;
+            background-color: #1c2e4a;
+            border-radius: 8px;
+            overflow: hidden;
+            z-index: 1000;
+        }
+
+        .dropdown-menu li {
+            padding: 10px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .dropdown-menu li:hover {
+            background-color: #2d476c;
+        }
+
     </style>
 </html>
