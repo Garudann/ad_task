@@ -36,23 +36,23 @@
                 </tr> -->
                 <tr>
                     <td><label for="firstName">First Name</label></td>
-                    <td><input type="text" id="firstName" name="firstName" autocomplete="off" required></td>
+                    <td><input type="text" id="firstName" name="firstName" autocomplete="off" placeholder="Enter your name" required></td>
                 </tr>
                 <tr>
                     <td><label for="employeeCode">Employee Code</label></td>
-                    <td><input type="text" id="employeeCode" name="employeeCode" autocomplete="off" required></td>
+                    <td><input type="text" id="employeeCode" name="employeeCode" autocomplete="off" placeholder="Enter Employee code" required></td>
                 </tr>
                 <tr>
                     <td><label for="username">Username</label></td>
-                    <td><input type="text" id="username" name="username" autocomplete="off" required></td>
+                    <td><input type="text" id="username" name="username" autocomplete="off" placeholder="Enter Username" required></td>
                 </tr>
                 <tr>
                     <td><label for="password">Password</label></td>
-                    <td><input type="password" id="password" name="password" autocomplete="off" required></td>
+                    <td><input type="password" id="password" name="password" autocomplete="off" placeholder="Enter Password" required></td>
                 </tr>
                 <tr>
                     <td><label for="confirmPassword">Confirm Password</label></td>
-                    <td><input type="password" id="confirmPassword" name="confirmPassword" autocomplete="off" required></td>
+                    <td><input type="password" id="confirmPassword" name="confirmPassword" autocomplete="off" placeholder="Enter Confirm Password" required></td>
                 </tr>
                 <tr>
                     <td><label for="profile">Profile Settings</label></td>
