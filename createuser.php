@@ -88,14 +88,14 @@
         $password = $_POST['password']; // plain text (not secure)
         $profile = $_POST['profile'];
 
-        $sql = "INSERT INTO users (firstName, employeeCode, username, password, profile)
-                VALUES (:firstName, :employeeCode, :username, :password, :profile)";
+        $sql = "INSERT INTO users (Employee_name, EMP_code, Username, Password, profile)
+        VALUES (:firstName, :employeeCode, :username, :password, :profile)";
         $query = $dbh->prepare($sql);
-        $query->bindParam(':firstName', $firstName, PDO::PARAM_STR);
-        $query->bindParam(':employeeCode', $employeeCode, PDO::PARAM_STR);
+        $query->bindParam(':firstName', $firstName, PDO::PARAM_STR);     // -> Employee_name
+        $query->bindParam(':employeeCode', $employeeCode, PDO::PARAM_STR); // -> EMP_code
         $query->bindParam(':username', $username, PDO::PARAM_STR);
         $query->bindParam(':password', $password, PDO::PARAM_STR);
-        $query->bindParam(':profile', $profile, PDO::PARAM_STR);
+        $query->bindParam(':profile', $profile, PDO::PARAM_STR);        
 
         $query->execute();
         $lastinsert = $dbh->lastInsertId();
