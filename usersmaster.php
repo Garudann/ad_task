@@ -96,7 +96,7 @@ $results = $query->fetchAll(PDO::FETCH_OBJ);
                     <?php foreach ($results as $row): ?>
                         <tr>
                             <td><?= htmlspecialchars($row->ID) ?></td>
-                            <td><?= htmlspecialchars($row->Employee_name) ?></td>
+                            <td><?= ucfirst(htmlspecialchars($row->Employee_name)) ?></td>
                             <td><?= htmlspecialchars($row->EMP_code) ?></td>
                             <td><?= htmlspecialchars($row->Username) ?></td>
                             <td><?= $row->profile == 0 ? 'Admin' : 'User' ?></td>
