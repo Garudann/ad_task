@@ -24,7 +24,7 @@
 
         .sidebar:hover {
             width: 300px;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(7px);
         }
 
         .sidebar h2 {

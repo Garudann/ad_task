@@ -65,7 +65,7 @@
         <tr>
             <td><label for="profile">Profile Settings</label></td>
             <td><select name="profile" id="profile">
-                <option value="1">User</option>
+                <option value="1" selected>User</option>
                 <option value="0">Admin</option>
             </select></td>
         </tr>
