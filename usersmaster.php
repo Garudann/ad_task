@@ -69,6 +69,24 @@ $results = $query->fetchAll(PDO::FETCH_OBJ);
         th, td {
             border-collapse: collapse;
         }
+        .add-user-btn {
+            padding: 10px 20px;
+            background-color:rgb(54, 102, 189);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            height: 40px;
+        }
+
+        .add-user-btn:hover {
+            background-color:rgb(0, 76, 255);
+        }
     </style>
 </head>
 <body>
@@ -116,18 +134,7 @@ $results = $query->fetchAll(PDO::FETCH_OBJ);
                 <?php endif; ?>
             </table>
         </div>
-        <button onclick="window.location.href='createuser.php'" style="
-                padding: 10px 20px;
-                background-color:rgb(47, 116, 190);
-                color: white;
-                border: none;
-                border-radius: 20px;
-                cursor: pointer;
-                font-size: 16px;
-                font-weight: 500;
-            " onmouseover="this.style.backgroundColor='#a50000'" onmouseout="this.style.backgroundColor='#cc0000'">
-                Create User
-            </button>
+        <a href="createuser.php" class="add-user-btn">Create User</a>
     </div>
     <script>
     const searchInput = document.getElementById("searchInput");
