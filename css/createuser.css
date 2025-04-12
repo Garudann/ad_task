@@ -82,7 +82,7 @@ select {
 }
 
 select, option {
-    color: #000000; /* Text color - red */
+    color: #ffffff; /* Text color - red */
     background-color: transparent; /* Dark blue background */
     border: 1px solid #ffffff; /* Border to match text */
     border-radius: 40px;
