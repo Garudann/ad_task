@@ -116,6 +116,18 @@ $results = $query->fetchAll(PDO::FETCH_OBJ);
                 <?php endif; ?>
             </table>
         </div>
+        <button onclick="window.location.href='createuser.php'" style="
+                padding: 10px 20px;
+                background-color:rgb(47, 116, 190);
+                color: white;
+                border: none;
+                border-radius: 20px;
+                cursor: pointer;
+                font-size: 16px;
+                font-weight: 500;
+            " onmouseover="this.style.backgroundColor='#a50000'" onmouseout="this.style.backgroundColor='#cc0000'">
+                Create User
+            </button>
     </div>
     <script>
     const searchInput = document.getElementById("searchInput");
