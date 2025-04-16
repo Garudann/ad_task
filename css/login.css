@@ -8,7 +8,7 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url(https://png.pngtree.com/thumb_back/fw800/background/20240731/pngtree-beautiful-night-sky-with-stars-image_15938132.jpg) no-repeat;
+    background: url(https://images.pexels.com/photos/35600/road-sun-rays-path.jpg?cs=srgb&dl=pexels-pixabay-35600.jpg&fm=jpg) no-repeat;
     background-size: cover;
     background-position: center;
 }
@@ -16,7 +16,7 @@ body{
     width: 420px;
     background-color: transparent;
     border: 2px solid rgba(255,255,255, .2);
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(10px);
     box-shadow: 0 0 5px ;
     color: white;
     border-radius: 15px;

@@ -9,7 +9,7 @@ body {
     display: flex;
     justify-content: center;
     min-height: 100vh;
-    background: url(https://png.pngtree.com/thumb_back/fw800/background/20240731/pngtree-beautiful-night-sky-with-stars-image_15938132.jpg) no-repeat;
+    background: url(https://images.pexels.com/photos/35600/road-sun-rays-path.jpg?cs=srgb&dl=pexels-pixabay-35600.jpg&fm=jpg) no-repeat;
     background-size: cover;
     background-position: center;
 }
@@ -76,8 +76,8 @@ body {
 
 .card {
     width: 24%;
-    background-color: #2b98c491;
-    backdrop-filter: blur(50%);
+    /* background-color: #2b98c491; */
+    backdrop-filter: blur(10px);
     border-radius: 8px;
     box-shadow: 0 4px 8px ;
     padding: 20px;
