@@ -6,7 +6,7 @@
     <title>Profile</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/dasboard.css">
-    <!-- <link rel="stylesheet" href="css/createuser.css"> -->
+    <link rel="stylesheet" href="css/profile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
@@ -40,27 +40,27 @@
             </div>
         </div>
         <div>
-          <table style="border= none;">
-            <form method="POST" action="change_password.php">
-            <tr>
+          <form action="#">
+            <table style="border= none;">
+              <tr>
                 <th></th>
                 <th></th>
-            </tr>
-            <tr>
-                <label for="current_password">Current Password:</label>
-                <input type="password" name="current_password" required>
-            </tr>
-            <tr>
-                <label for="new_password">New Password:</label>
-                <input type="password" name="new_password" required>
-            </tr>
-            <tr>
-                <label for="confirm_password">Confirm New Password:</label>
-                <input type="password" name="confirm_password" required>
-            </tr>
-                <button type="submit" name="change_password">Change Password</button>
-            </form>
-          </table>
+              </tr>
+              <tr>
+                <td><label for="email">Enter your Email:</label></td>
+                <td><input type="text" id="email"autocomplete="off" placeholder="Enter your Email" required></td>
+              </tr>
+              <tr>
+                <td><label for="Password">Enter your Password:</label></td>
+                <td><input type="Password" id="Password"autocomplete="off" placeholder="Enter your Password" required></td>
+              </tr>
+              <tr>
+                <td><label for="confirm_Password">Please re-enter Password:</label></td>
+                <td><input type="Password" id="confirm_Password"autocomplete="off" placeholder="Enter your Confirm password" required></td>
+              </tr>
+            </table>
+            <button type="submit" class="submit-btn" name="submit">SUBMIT</button>
+          </form>
         </div>
 
       </div>
