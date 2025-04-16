@@ -40,15 +40,15 @@
             </div>
         </div>
         <div>
-          <form action="#">
+          <form action="ch_password.php" method="POST">
             <table style="border= none;">
               <tr>
                 <th></th>
                 <th></th>
               </tr>
               <tr>
-                <td><label for="email">Enter your Email:</label></td>
-                <td><input type="text" id="email"autocomplete="off" placeholder="Enter your Email" required></td>
+                <td><label for="username">Enter your username:</label></td>
+                <td><input type="text" id="email"autocomplete="off" placeholder="Enter your username" required></td>
               </tr>
               <tr>
                 <td><label for="Password">Enter your Password:</label></td>
