@@ -50,5 +50,31 @@
                 <p>Pending tasks: 24</p>
             </div>
         </div>
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <p>Are you sure? You want to Logout?</p>
+                <button id="goBtn">Yes</button>
+                <button onclick="closePopup()">No!</button>
+            </div>
+        </div>
+<script>
+  const userDiv = document.querySelector('.user');
+  const popup = document.getElementById('popup');
+  const goBtn = document.getElementById('goBtn');
+
+  userDiv.addEventListener('click', () => {
+    popup.style.display = 'block';
+  });
+
+  function closePopup() {
+    popup.style.display = 'none';
+  }
+
+  goBtn.addEventListener('click', () => {
+    window.location.href = 'index.php'; // 👈 Change the page as needed
+    alert("You have logged out succesfully!!");
+  });
+</script>
+
 </body>
 </html>
