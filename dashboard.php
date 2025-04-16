@@ -71,7 +71,7 @@
   }
 
   goBtn.addEventListener('click', () => {
-    window.location.href = 'index.php'; // 👈 Change the page as needed
+    window.location.href = 'index.php';
     alert("You have logged out succesfully!!");
   });
 </script>
