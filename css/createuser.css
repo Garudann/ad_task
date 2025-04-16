@@ -53,6 +53,7 @@ button.submit-btn {
     height: 50px;
     margin-top: 10px;
     background-color: transparent;
+    backdrop-filter: blur(7px);
     border: none;
     outline: none;
     border-radius: 40px;
@@ -67,7 +68,7 @@ button.submit-btn {
     margin-left: 27%;
 }
 button.submit-btn:hover{
-    background-color: rgb(149, 149, 194);
+    background-color: rgb(93, 93, 127);
 }
 select {
     background-color: transparent;
@@ -96,7 +97,7 @@ select, option {
 }
 
 select:hover {
-    background-color: #112240; /* Slightly lighter blue on hover */
+    background-color: #2b2e2f; /* Slightly lighter blue on hover */
     box-shadow: 0 0 10px rgba(204, 0, 0, 0.3);
 }
 
@@ -104,4 +105,8 @@ select:focus {
     outline: none;
     border-color: #a29292;
     box-shadow: 0 0 8px rgba(204, 0, 0, 0.6);
+}
+input::placeholder {
+    color: #f0f0f0; 
+    font-style: italic; 
 }
