@@ -69,7 +69,24 @@ $results = $query->fetchAll(PDO::FETCH_OBJ);
         th, td {
             border-collapse: collapse;
         }
+        .add-user-btn {
+            padding: 10px 20px;
+            background-color:rgb(54, 102, 189);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            height: 40px;
+        }
 
+        .add-user-btn:hover {
+            background-color:rgb(0, 76, 255);
+        }
     </style>
 </head>
 <body>
@@ -83,6 +100,16 @@ $results = $query->fetchAll(PDO::FETCH_OBJ);
         </div>
 
         <div class="container">
+        <input type="text" id="searchInput" placeholder="Search by name, code, username..." style="
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 1px solid #39557a;
+            background-color: #112240;
+            color: white;
+            font-size: 16px;
+        ">
             <h2>All Users</h2>
             <table>
                 <tr>
@@ -107,6 +134,20 @@ $results = $query->fetchAll(PDO::FETCH_OBJ);
                 <?php endif; ?>
             </table>
         </div>
+        <a href="createuser.php" class="add-user-btn">Create User</a>
     </div>
+    <script>
+    const searchInput = document.getElementById("searchInput");
+    searchInput.addEventListener("keyup", function () {
+        const filter = searchInput.value.toLowerCase();
+        const rows = document.querySelectorAll("table tr:not(:first-child)");
+
+        rows.forEach(row => {
+            const text = row.innerText.toLowerCase();
+            row.style.display = text.includes(filter) ? "" : "none";
+        });
+    });
+</script>
+
 </body>
 </html>
