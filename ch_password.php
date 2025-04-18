@@ -1,31 +1,49 @@
 <?php
 session_start();
-include 'db.php'; // This must define $dbh
+include('db.php'); // your PDO connection
 
-if (isset($_POST['change_password'])) {
-    $entered_username = $_POST['username']; // From form
-    $new_password = $_POST['new_password'];
-    $confirm_password = $_POST['confirm_password'];
-    $session_username = $_SESSION['login'];
+if (!isset($_SESSION['login'])) {
+    echo "<script>
+        alert('Please log in first.');
+        window.location.href = 'index.php';
+    </script>";
+    exit();
+}
 
-    // Check if new passwords match
-    if ($new_password !== $confirm_password) {
-        echo "New passwords do not match.";
-        exit;
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get and sanitize input
+    $username = trim($_POST['username'] ?? '');
+    $password = trim($_POST['password'] ?? '');
+    $confirm_password = trim($_POST['confirm_password'] ?? '');
+
+    // Check if passwords match
+    if ($password !== $confirm_password) {
+        echo "<script>
+            alert('Passwords do not match.');
+            window.history.back();
+        </script>";
+        exit();
     }
 
-    // Compare entered username with session username
-    if ($entered_username === $session_username) {
-        echo $session_username;
-        // Update password
-        $stmt = $dbh->prepare("UPDATE users SET password = :new_password WHERE username = :username");
-        $stmt->bindParam(':new_password', $new_password, PDO::PARAM_STR);
-        $stmt->bindParam(':username', $session_username, PDO::PARAM_STR);
-        $stmt->execute();
+    try {
+        // Update password using PDO
+        $stmt = $dbh->prepare("UPDATE users SET password = :password WHERE username = :username");
+        $stmt->bindParam(':password', $password);
+        $stmt->bindParam(':username', $username);
 
-        echo "Password changed successfully.";
-    } else {
-        echo "Entered username does not match your session.";
+        if ($stmt->execute()) {
+            echo "<script>
+                alert('Password updated successfully.');
+                window.location.href = 'profile.php';
+            </script>";
+        } else {
+            echo "<script>
+                alert('Error updating password. Please try again.');
+                window.history.back();
+            </script>";
+        }
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
     }
 }
 ?>

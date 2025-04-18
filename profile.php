@@ -48,18 +48,24 @@
               </tr>
               <tr>
                 <td><label for="username">Enter your username:</label></td>
-                <td><input type="text" id="email"autocomplete="off" placeholder="Enter your username" required></td>
+                <td><input type="text" id="username"autocomplete="off" name="username" placeholder="Enter your username" required></td>
               </tr>
               <tr>
                 <td><label for="Password">Enter your Password:</label></td>
-                <td><input type="Password" id="Password"autocomplete="off" placeholder="Enter your Password" required></td>
+                <td><input type="Password" id="Password"autocomplete="off" name="password" placeholder="Enter your Password" required></td>
               </tr>
               <tr>
                 <td><label for="confirm_Password">Please re-enter Password:</label></td>
-                <td><input type="Password" id="confirm_Password"autocomplete="off" placeholder="Enter your Confirm password" required></td>
+                <td><input type="Password" id="confirm_Password"autocomplete="off" name="confirm_password" placeholder="Enter your Confirm password" required></td>
               </tr>
             </table>
             <button type="submit" class="submit-btn" name="submit">SUBMIT</button>
+            <script>
+              console.log ('Enterred Username :', <?$entered_username?>);
+              console.log('Enterred Password:', <?$new_password?>);
+              console.log('New Password:', <?$new_password?>);
+              console.log('Confirm password:', <?$confirm_password?>);
+            </script>
           </form>
         </div>
 
