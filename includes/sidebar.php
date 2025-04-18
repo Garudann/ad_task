@@ -89,7 +89,7 @@ function toggleDropdown() {
             list-style: none;
             padding: 0;
             margin: 5px 0 0 20px;
-            background-color: #1c2e4a;
+            background-color: transperant;
             border-radius: 8px;
             overflow: hidden;
             z-index: 1000;

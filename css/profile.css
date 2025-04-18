@@ -1,16 +1,9 @@
-form.get-user {
-    width: 100%; /* Stretch the form container to full screen width */
-    margin: 0; /* Remove auto centering */
-    font-family: 'Poppins', sans-serif;
-}
-
 table {
     width: 70%;
     height: 100%; /* Ensure the table takes up the full width of the screen */
     border: none;
     border-color: transparent;
 }
-
 th, td {
     padding: 10px;
     text-align: left;
@@ -65,47 +58,12 @@ button.submit-btn {
     border-width: 2px;
     border-radius: 15px;
     border-style: solid;
-    margin-left: 27%;
+    margin-left: 32.5%;
 }
 button.submit-btn:hover{
     background-color: rgb(93, 93, 127);
 }
-select {
-    background-color: transparent;
-    width: 170%;
-    height: 65px;
-    backdrop-filter: blur(4px);
-    padding: 5px;
-    font-size: 1rem;
-    border-radius: 40px;
-    font-weight: 50px;
-    font-size: large;
-}
-
-select, option {
-    color: #fffdfd; /* Text color - red */
-    background-color: transparent; /* Dark blue background */
-    border: 1px solid #1b1616; /* Border to match text */
-    border-radius: 40px;
-    padding: 8px 16px;
-    font-size: 16px;
-    font-family: 'Poppins', sans-serif;
-    appearance: none; /* Clean browser default dropdown arrow */
-    cursor: pointer;
-    transition: 0.3s ease;
-    box-shadow: 0 0 10px rgba(204, 0, 0, 0.3);
-}
-
-select:hover {
-    background-color: #2b2e2f; /* Slightly lighter blue on hover */
-    box-shadow: 0 0 10px rgba(204, 0, 0, 0.3);
-}
-
-select:focus {
-    outline: none;
-    border-color: #a29292;
-}
 input::placeholder {
-    color: #f0f0f0; 
-    font-style: italic; 
+    color: #f5eeee; 
+    font-style: italic;
 }
