@@ -3,7 +3,7 @@ session_start();
 include('includes/sidebar.php');
 
 // Auto logout after 10 minutes of inactivity
-$timeout_duration = 6;
+$timeout_duration = 600;
 
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY']) > $timeout_duration) {
     session_unset();
