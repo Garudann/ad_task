@@ -2,6 +2,15 @@
 session_start();
 include 'db.php';
 include('includes/sidebar.php');
+$timeout_duration = 3;
+
+if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY']) > $timeout_duration) {
+    session_unset();
+    session_destroy();
+    header("Location: index.php");
+    exit();
+}
+$_SESSION['LAST_ACTIVITY'] = time();
 if (!isset($_SESSION['login'])) {
     // User is not logged in, redirect to login page
     echo "<script>

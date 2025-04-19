@@ -8,7 +8,7 @@ $timeout_duration = 600;
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY']) > $timeout_duration) {
     session_unset();
     session_destroy();
-    header("Location: index.php?timeout=1");
+    header("Location: index.php");
     exit();
 }
 $_SESSION['LAST_ACTIVITY'] = time();
