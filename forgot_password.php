@@ -15,11 +15,6 @@
                 <input type="text" name="username" placeholder="Enter your username" required>
                 <i class='bx bxs-user'></i>
             </div>
-            <button class="btn2">Send verification code</button>
-            <div class="input-box">
-                <input type="text" placeholder="Enter OTP" required>
-                <i class='bx bxs-chat'></i>
-            </div>
             <button type="submit" class="btn1">submit</button>
         </form>
     </div>
