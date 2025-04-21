@@ -9,13 +9,13 @@
 </head>
 <body>
     <div class="wrapper">
-        <form action="">
+        <form action=" send_otp.php" method="POST">
             <h3>change your password</h3>
             <div class="input-box">
-                <input type="text" placeholder="Enter your username" required>
+                <input type="text" name="username" placeholder="Enter your username" required>
                 <i class='bx bxs-user'></i>
             </div>
-            <button class="btn2">Send OTP</button>
+            <button class="btn2">Send verification code</button>
             <div class="input-box">
                 <input type="text" placeholder="Enter OTP" required>
                 <i class='bx bxs-chat'></i>
