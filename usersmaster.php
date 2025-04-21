@@ -2,7 +2,7 @@
 session_start();
 include 'db.php';
 include('includes/sidebar.php');
-$timeout_duration = 3;
+$timeout_duration = 600;
 
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY']) > $timeout_duration) {
     session_unset();
