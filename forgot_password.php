@@ -12,16 +12,8 @@
         <form action="">
             <h3>change your password</h3>
             <div class="input-box">
-                <input type="text" placeholder="Mobile number" required>
+                <input type="text" placeholder="Enter your username" required>
                 <i class='bx bxs-user'></i>
-            </div>
-            <div class="input-box">
-                <input type="password" placeholder="password" required>
-                <i class='bx bxs-lock-alt'></i>
-            </div>
-            <div class="input-box">
-                <input type="password" placeholder="confirm password" required>
-                <i class='bx bxs-lock-alt'></i>
             </div>
             <button class="btn2">Send OTP</button>
             <div class="input-box">
