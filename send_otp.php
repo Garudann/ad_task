@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 session_start();
 require 'vendor/autoload.php'; // include PHPMailer
 require 'db.php'; // your DB connection
@@ -10,7 +12,7 @@ if (isset($_POST['send_otp'])) {
     $username = $_POST['username'];
 
     // Step 1: Get email from DB
-    $stmt = $conn->prepare("SELECT email FROM users WHERE username = :username");
+    $stmt = $dbh->prepare("SELECT email FROM users WHERE username = :username");
     $stmt->bindParam(':username', $username);
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -24,13 +26,15 @@ if (isset($_POST['send_otp'])) {
 
     // Step 2: Generate OTP
     $otp = rand(100000, 999999);
+    echo $otp;
     $_SESSION['sent_otp'] = $otp;
     $_SESSION['otp_user'] = $username;
 
     // Step 3: Send OTP via PHPMailer
     $mail = new PHPMailer(true);
     try {
-        $mail->SMTPDebug = 2; // or use 3 for more info
+        $mail->SMTPDebug = 2;
+        $mail->Debugoutput = 'html'; // or use 3 for more info
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
