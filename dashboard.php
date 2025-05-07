@@ -2,7 +2,6 @@
 session_start();
 include('includes/sidebar.php');
 
-// Auto logout after 10 minutes of inactivity
 $timeout_duration = 600;
 
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY']) > $timeout_duration) {
@@ -116,7 +115,7 @@ if (!isset($_SESSION['login'])) {
         }
 
         goBtn.addEventListener('click', () => {
-            window.location.href = 'logout.php'; // go to logout page to destroy session
+            window.location.href = 'logout.php';
         });
     </script>
 </body>
