@@ -59,8 +59,8 @@ $results = $query->fetchAll(PDO::FETCH_OBJ);
         }
 
         th {
-            background-color: #1c2e4a;
-            color: #cc0000;
+            background-color:rgb(69, 108, 172);
+            color: #fff;
         }
         tr:nth-child(even) {
             background-color: transperant;
@@ -115,8 +115,8 @@ $results = $query->fetchAll(PDO::FETCH_OBJ);
             margin-bottom: 20px;
             border-radius: 8px;
             border: 1px solid #39557a;
-            background-color: #112240;
-            color: white;
+            background-color: transperant;
+            color: black;
             font-size: 16px;
         ">
             <h2>All Users</h2>

@@ -38,7 +38,7 @@ if (!isset($_SESSION['login'])) {
             top: 30%;
             left: 50%;
             transform: translate(-50%, -30%);
-            background-color: white;
+            background-color: transperant;
             border-radius: 15px;
             box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
             z-index: 999;
