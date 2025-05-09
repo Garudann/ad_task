@@ -3,7 +3,7 @@
         <h2>Dashboard</h2>
         <ul>
             <li onclick="window.location.href='dashboard.php'"><i class="fas fa-home"></i> Home</li>
-            <li onclick="window.location.href='#'"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Create Task</li>
+            <li onclick="window.location.href='create_task.php'"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Create Task</li>
             <li onclick="window.location.href='task_list.php'"><i class="fa fa-tasks"></i> Task Manager</li>
             <li onclick="window.location.href='analystics.php'"><i class="fas fa-chart-line"></i> Analytics</li>
             <li onclick="window.location.href='profile.php'"><i class="fas fa-user"></i> User Profile</li>
