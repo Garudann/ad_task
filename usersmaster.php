@@ -2,6 +2,15 @@
 session_start();
 include 'db.php';
 include('includes/sidebar.php');
+$timeout_duration = 600;
+
+if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY']) > $timeout_duration) {
+    session_unset();
+    session_destroy();
+    header("Location: index.php");
+    exit();
+}
+$_SESSION['LAST_ACTIVITY'] = time();
 if (!isset($_SESSION['login'])) {
     // User is not logged in, redirect to login page
     echo "<script>
@@ -50,8 +59,8 @@ $results = $query->fetchAll(PDO::FETCH_OBJ);
         }
 
         th {
-            background-color: #1c2e4a;
-            color: #cc0000;
+            background-color:rgb(69, 108, 172);
+            color: #fff;
         }
         tr:nth-child(even) {
             background-color: transperant;
@@ -106,8 +115,8 @@ $results = $query->fetchAll(PDO::FETCH_OBJ);
             margin-bottom: 20px;
             border-radius: 8px;
             border: 1px solid #39557a;
-            background-color: #112240;
-            color: white;
+            background-color: transperant;
+            color: black;
             font-size: 16px;
         ">
             <h2>All Users</h2>
