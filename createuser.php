@@ -14,6 +14,15 @@
     <?php
         session_start();
         include 'db.php';
+        $timeout_duration = 600;
+
+        if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY']) > $timeout_duration) {
+            session_unset();
+            session_destroy();
+            header("Location: index.php");
+            exit();
+        }
+        $_SESSION['LAST_ACTIVITY'] = time();
         if (!isset($_SESSION['login'])) {
             // User is not logged in, redirect to login page
             echo "<script>
@@ -38,10 +47,6 @@
                     <th></th>
                     <th></th>
                 </tr>
-                <!-- <tr>
-                    <td><label for="id">ID</label></td>
-                    <td><input type="number" id="id" name="id" autocomplete="off" required></td>
-                </tr> -->
                 <tr>
                     <td><label for="firstName">First Name</label></td>
                     <td><input type="text" id="firstName" name="firstName" autocomplete="off" placeholder="Enter your name" required></td>
@@ -79,9 +84,9 @@
 
         if (password !== confirmPassword) {
             alert('Passwords does not match. Please try again.');
-            return false; // Prevents form submission
+            return false;
         }
-        return true; // Allows form submission if passwords match
+        return true;
     }
 </script>
 </form>
@@ -118,14 +123,14 @@
         $firstName = $_POST['firstName'];
         $employeeCode = $_POST['employeeCode'];
         $username = $_POST['username'];
-        $password = $_POST['password']; // plain text (not secure)
+        $password = $_POST['password'];
         $profile = $_POST['profile'];
 
         $sql = "INSERT INTO users (Employee_name, EMP_code, Username, Password, profile)
         VALUES (:firstName, :employeeCode, :username, :password, :profile)";
         $query = $dbh->prepare($sql);
-        $query->bindParam(':firstName', $firstName, PDO::PARAM_STR);     // -> Employee_name
-        $query->bindParam(':employeeCode', $employeeCode, PDO::PARAM_STR); // -> EMP_code
+        $query->bindParam(':firstName', $firstName, PDO::PARAM_STR);
+        $query->bindParam(':employeeCode', $employeeCode, PDO::PARAM_STR);
         $query->bindParam(':username', $username, PDO::PARAM_STR);
         $query->bindParam(':password', $password, PDO::PARAM_STR);
         $query->bindParam(':profile', $profile, PDO::PARAM_STR);        

@@ -38,7 +38,7 @@ if (isset($_COOKIE['password'])) {
             </div>
             <div class="remember-forgot">
                 <label><input type="checkbox">Remember me</label>
-                <a href='for_pass.html'>Forgot password?</a>
+                <a href='forgot_password.php'>Forgot password?</a>
             </div>
             <button type="submit" name="signin" class="btn">Login</button>
             <div class="ac">

@@ -9,24 +9,11 @@
 </head>
 <body>
     <div class="wrapper">
-        <form action="">
+        <form action=" send_otp.php" method="POST">
             <h3>change your password</h3>
             <div class="input-box">
-                <input type="text" placeholder="Mobile number" required>
+                <input type="text" name="username" placeholder="Enter your username" required>
                 <i class='bx bxs-user'></i>
-            </div>
-            <div class="input-box">
-                <input type="password" placeholder="password" required>
-                <i class='bx bxs-lock-alt'></i>
-            </div>
-            <div class="input-box">
-                <input type="password" placeholder="confirm password" required>
-                <i class='bx bxs-lock-alt'></i>
-            </div>
-            <button class="btn2">Send OTP</button>
-            <div class="input-box">
-                <input type="text" placeholder="Enter OTP" required>
-                <i class='bx bxs-chat'></i>
             </div>
             <button type="submit" class="btn1">submit</button>
         </form>

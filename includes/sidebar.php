@@ -3,6 +3,8 @@
         <h2>Dashboard</h2>
         <ul>
             <li onclick="window.location.href='dashboard.php'"><i class="fas fa-home"></i> Home</li>
+            <li onclick="window.location.href='create_task.php'"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Create Task</li>
+            <li onclick="window.location.href='task_list.php'"><i class="fa fa-tasks"></i> Task Manager</li>
             <li onclick="window.location.href='analystics.php'"><i class="fas fa-chart-line"></i> Analytics</li>
             <li onclick="window.location.href='profile.php'"><i class="fas fa-user"></i> User Profile</li>
             <li onclick="window.location.href='settings.php'"><i class="fas fa-cog"></i> Settings</li>
@@ -14,7 +16,6 @@
                 <ul class="dropdown-menu" id="userDropdown">
                     <li onclick="window.location.href='createuser.php'">Add User</li>
                     <li onclick="window.location.href='usersmaster.php'">View Users</li>
-                    <!-- Add more submenu items here -->
                 </ul>
             </li>
 <?php endif; ?>
