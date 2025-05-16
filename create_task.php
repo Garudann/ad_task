@@ -1,4 +1,6 @@
+
 <?php include 'db.php';?>
+
 <?php session_start();?>
 <?php include ('includes/sidebar.php'); ?>
 <!DOCTYPE html>
@@ -80,7 +82,9 @@
             <button onclick="closePopup()">No</button>
         </div>
     </div>
+
     <h2 style="color: white; padding-bottom: 10px;">Create New Task</h2>
+
     <form action="create_task.php" method="POST">
         <label>Task Created By:</label><br>
         <input type="text" name="task_created_by" class="author" 
@@ -140,7 +144,7 @@ if (isset($_POST['submit'])) {
         echo "Error: " . $e->getMessage();
     }
 }
-?>
+    ?>
     <script>
         const userDiv = document.querySelector('.user');
         const popup = document.getElementById('popup');
