@@ -3,6 +3,16 @@
 <?php include ('includes/sidebar.php'); ?>
 
 <?php
+$_SESSION['LAST_ACTIVITY'] = time();
+
+// Check if user is logged in
+if (!isset($_SESSION['login'])) {
+    echo "<script>
+        alert('Please log in first.');
+        window.location.href = 'index.php';
+    </script>";
+    exit();
+}
 $task = null;
 if (isset($_GET['id'])) {
     try {

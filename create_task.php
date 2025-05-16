@@ -3,6 +3,16 @@
 
 <?php session_start();?>
 <?php include ('includes/sidebar.php'); ?>
+<?php
+$_SESSION['LAST_ACTIVITY'] = time();
+if (!isset($_SESSION['login'])) {
+    echo "<script>
+        alert('Please log in first.');
+        window.location.href = 'index.php';
+    </script>";
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
