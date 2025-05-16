@@ -191,51 +191,51 @@ $results = $query->fetchAll(PDO::FETCH_OBJ);
         window.location.href = 'index.php';
         alert("You have logged out succesfully!!");
     });
-    document.addEventListener('DOMContentLoaded', function() {
-        // Add event listeners to all status dropdowns
-        document.querySelectorAll('.status-select').forEach(select => {
-            select.addEventListener('change', function() {
-                const taskId = this.getAttribute('data-task-id');
-                const newStatus = this.value;
-                
-                if (taskId && confirm('Are you sure you want to update this task status?')) {
-                    updateTaskStatus(taskId, newStatus);
-                }
-            });
-        });
-        
-        async function updateTaskStatus(taskId, status) {
-            try {
-                const response = await fetch('update_status.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
-                    },
-                    body: `task_id=${taskId}&task_status=${status}`
-                });
-                
-                const result = await response.text();
-                
-                if (response.ok) {
-                    alert('Status updated successfully!');
-                    // Optional: Update just the status display instead of full reload
-                    location.reload();
-                } else {
-                    alert('Error updating status: ' + result);
-                    // Revert the dropdown to previous value
-                    const select = document.querySelector(`.status-select[data-task-id="${taskId}"]`);
-                    select.value = select.getAttribute('data-previous-value');
-                }
-            } catch (error) {
-                alert('Network error: ' + error.message);
+document.addEventListener('DOMContentLoaded', function() {
+    // Add event listeners to all status dropdowns
+    document.querySelectorAll('.status-select').forEach(select => {
+        select.addEventListener('change', function() {
+            const taskId = this.getAttribute('data-task-id');
+            const newStatus = this.value;
+            
+            if (taskId && confirm('Are you sure you want to update this task status?')) {
+                updateTaskStatus(taskId, newStatus);
             }
-        }
-        
-        // Store initial values in case we need to revert
-        document.querySelectorAll('.status-select').forEach(select => {
-            select.setAttribute('data-previous-value', select.value);
         });
     });
+    
+    async function updateTaskStatus(taskId, status) {
+        try {
+            const response = await fetch('update_status.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `task_id=${taskId}&task_status=${status}`
+            });
+            
+            const result = await response.text();
+            
+            if (response.ok) {
+                alert('Status updated successfully!');
+                // Optional: Update just the status display instead of full reload
+                location.reload();
+            } else {
+                alert('Error updating status: ' + result);
+                // Revert the dropdown to previous value
+                const select = document.querySelector(`.status-select[data-task-id="${taskId}"]`);
+                select.value = select.getAttribute('data-previous-value');
+            }
+        } catch (error) {
+            alert('Network error: ' + error.message);
+        }
+    }
+    
+    // Store initial values in case we need to revert
+    document.querySelectorAll('.status-select').forEach(select => {
+        select.setAttribute('data-previous-value', select.value);
+    });
+});
 </script>
 </body>
 </html>
