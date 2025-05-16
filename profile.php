@@ -57,7 +57,8 @@
               </tr>
               <tr>
                 <td><label for="username">Enter your username:</label></td>
-                <td><input type="text" id="username"autocomplete="off" name="username" placeholder="Enter your username" required></td>
+                <td><input type="text" id="username"autocomplete="off" name="username" required value="<?php echo isset($_SESSION['login']) ? htmlspecialchars($_SESSION['login']) : ''; ?>" 
+       readonly></td>
               </tr>
               <tr>
                 <td><label for="Password">Enter your Password:</label></td>
