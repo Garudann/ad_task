@@ -9,7 +9,7 @@ body {
     display: flex;
     justify-content: center;
     min-height: 100vh;
-    background: url(https://images.pexels.com/photos/35600/road-sun-rays-path.jpg?cs=srgb&dl=pexels-pixabay-35600.jpg&fm=jpg) no-repeat;
+    background: url(https://i.redd.it/cdb8iertk00f1.png) no-repeat;
     background-size: cover;
     background-position: center;
 }
@@ -92,13 +92,13 @@ body {
 .card h3 {
     font-size: 18px;
     font-weight: 500;
-    color: #fff;
+    color: #da7676;
     margin-bottom: 10px;
 }
 
 .card p {
     font-size: 14px;
-    color: black;
+    color: rgb(245, 245, 245);
 }
 /* Popup overlay */
 .popup {

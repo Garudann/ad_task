@@ -3,14 +3,21 @@
         <h2>Dashboard</h2>
         <ul>
             <li onclick="window.location.href='dashboard.php'"><i class="fas fa-home"></i> Home</li>
-            <li onclick="window.location.href='create_task.php'"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Create Task</li>
-            <li onclick="window.location.href='task_list.php'"><i class="fa fa-tasks"></i> Task Manager</li>
+            <li class="dropdown">
+                <div class="dropdown-toggle" onclick="toggleDropdown(event)">
+                    <i class="fa fa-tasks" aria-hidden="true"></i> Task
+                </div>
+                <ul class="dropdown-menu" id="taskDropdown">
+                    <li onclick="window.location.href='create_task.php'">Add Task</li>
+                    <li onclick="window.location.href='task_list.php'">View Tasks</li>
+                </ul>
+            </li>
             <li onclick="window.location.href='analystics.php'"><i class="fas fa-chart-line"></i> Analytics</li>
             <li onclick="window.location.href='profile.php'"><i class="fas fa-user"></i> User Profile</li>
             <li onclick="window.location.href='settings.php'"><i class="fas fa-cog"></i> Settings</li>
             <?php if (isset($_SESSION['profile']) && $_SESSION['profile'] == 0): ?>
             <li class="dropdown">
-                <div class="dropdown-toggle" onclick="toggleDropdown()">
+                <div class="dropdown-toggle" onclick="toggleDropdown(event)">
                     <i class="fa fa-plus-square" aria-hidden="true"></i> Manage Users
                 </div>
                 <ul class="dropdown-menu" id="userDropdown">
@@ -24,8 +31,14 @@
         </ul>
 </div>
 <script>
-function toggleDropdown() {
-    var menu = document.getElementById("userDropdown");
+function toggleDropdown(event) {
+        document.querySelectorAll('.dropdown-menu').forEach(menu => {
+        if (menu !== event.currentTarget.closest('.dropdown').querySelector('.dropdown-menu')) {
+            menu.style.display = "none";
+        }
+    });
+    var dropdown = event.currentTarget.closest('.dropdown');
+    var menu = dropdown.querySelector('.dropdown-menu');
     menu.style.display = (menu.style.display === "block") ? "none" : "block";
 }
 </script>

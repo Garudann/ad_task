@@ -115,7 +115,7 @@ $results = $query->fetchAll(PDO::FETCH_OBJ);
             margin-bottom: 20px;
             border-radius: 8px;
             border: 1px solid #39557a;
-            background-color: transperant;
+            background: transperant;
             color: black;
             font-size: 16px;
         ">
