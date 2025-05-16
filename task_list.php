@@ -108,7 +108,7 @@ $results = $query->fetchAll(PDO::FETCH_OBJ);
             </div>
         </div>
         <div>
-            <h2>Task List</h2>
+            <h2 style="padding-bottom:10px;">Task List</h2>
             <table>
                 <tr>
                     <th>Task ID</th>
@@ -135,8 +135,7 @@ $results = $query->fetchAll(PDO::FETCH_OBJ);
                             <td><?= ucfirst(htmlspecialchars($row->task_created_by)) ?></td>
                             <td><?= ucfirst(htmlspecialchars($row->task_assigned_to))?></td>
                             <td><?= htmlspecialchars($row->discription) ?></td>
-                            <td><?= isset($statusLabels[$row->status]) ? $statusLabels[$row->status] : 'Unknown' ?></td>
-                        </tr>
+                            <td><?= isset($statusLabels[$row->task_status]) ? $statusLabels[$row->task_status] : 'Unknown' ?></td>                        </tr>
                     <?php endforeach; ?>
                 <?php else: ?>
                     <tr><td colspan="5">No Records found.</td></tr>
