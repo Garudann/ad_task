@@ -198,7 +198,7 @@ select, option {
     width: 50%;
     height: 50px;
     margin-top: 10px;
-    background-color: transparent;
+    background-color: #d18de2;
     backdrop-filter: blur(7px);
     border: none;
     outline: none;
