@@ -135,7 +135,9 @@ $results = $query->fetchAll(PDO::FETCH_OBJ);
                             <td><?= ucfirst(htmlspecialchars($row->task_created_by)) ?></td>
                             <td><?= ucfirst(htmlspecialchars($row->task_assigned_to))?></td>
                             <td><?= htmlspecialchars($row->discription) ?></td>
-                            <td><?= isset($statusLabels[$row->task_status]) ? $statusLabels[$row->task_status] : 'Unknown' ?></td>                        </tr>
+                            <td><?= isset($statusLabels[$row->task_status]) ? $statusLabels[$row->task_status] : 'Unknown' ?></td>
+                            <td><a href="edit_task.php?id=<?= $row->task_id ?>" class="btn-edit"><i class="fas fa-edit"></i> Edit</a></td>
+                        </tr>
                     <?php endforeach; ?>
                 <?php else: ?>
                     <tr><td colspan="5">No Records found.</td></tr>
