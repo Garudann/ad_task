@@ -1,4 +1,6 @@
-<?php include 'db.php'; // your DB connection file ?>
+
+<?php include 'db.php';?>
+
 <?php session_start();?>
 <?php include ('includes/sidebar.php'); ?>
 <!DOCTYPE html>
@@ -80,7 +82,9 @@
             <button onclick="closePopup()">No</button>
         </div>
     </div>
-    <h2>Create New Task</h2>
+
+    <h2 style="color: white; padding-bottom: 10px;">Create New Task</h2>
+
     <form action="create_task.php" method="POST">
         <label>Task Created By:</label><br>
         <input type="text" name="task_created_by" class="author" 
@@ -104,32 +108,44 @@
 
 
         <label>Task Status:</label><br>
-        <select name="task_status" id="task_status" class="author" required></select><br><br>
+        <select name="task_status" id="task_status" class="author" disabled required></select><br><br>
 
 
         <label>Description:</label><br>
-        <textarea name="discription" rows="10" cols="200" id="dis" style="background-color: transparent; color: white;backdrop-filter: blur(4px);"></textarea><br><br>
+        <textarea name="discription" rows="10" cols="200" id="discription" style="background-color: transparent; color: white;backdrop-filter: blur(4px);"></textarea><br><br>
 
         <input type="submit" name="submit" value="Create Task" class="submit-btn">
     </form>
 
-    <?php
-    if (isset($_POST['submit'])) {
+<?php
+include 'db.php';
+
+
+if (isset($_POST['submit'])) {
+    try {
         $task_created_by = $_POST['task_created_by'];
         $task_assigned_to = $_POST['task_assigned_to'];
-        $task_status = $_POST['task_status'];
+        $task_status = (int)$_POST['task_status'];
         $description = $_POST['discription'];
 
-        $sql = "INSERT INTO tasks (task_created_by, task_assigned_to, task_status, discription, status)
-        VALUES ('$task_created_by', '$task_assigned_to', '$task_status', '$description', '$status')";
-        if (mysqli_query($conn, $sql)) {
-            $last_id = mysqli_insert_id($conn);
-            echo "<p>Task created successfully. Task ID is: <strong>$last_id</strong></p>";
-        } else {
-            echo "Error: " . mysqli_error($conn);
+        $sql = "INSERT INTO task_list (task_created_by, task_assigned_to, task_status, discription) 
+                VALUES (:created_by, :assigned_to, :status, :description)";
+        $stmt = $dbh->prepare($sql);
+        $stmt->bindParam(':created_by', $task_created_by);
+        $stmt->bindParam(':assigned_to', $task_assigned_to);
+        $stmt->bindParam(':status', $task_status, PDO::PARAM_INT);
+        $stmt->bindParam(':description', $description);
+        
+        if ($stmt->execute()) {
+            $last_id = $dbh->lastInsertId();
+            echo "<script>alert('Task created successfully. Task ID: $last_id');</script>";
         }
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
     }
+
     ?>
+
     <script>
         const userDiv = document.querySelector('.user');
         const popup = document.getElementById('popup');
