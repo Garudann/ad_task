@@ -143,9 +143,8 @@ if (isset($_POST['submit'])) {
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
     }
-
+}
     ?>
-
     <script>
         const userDiv = document.querySelector('.user');
         const popup = document.getElementById('popup');

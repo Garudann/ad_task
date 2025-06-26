@@ -165,6 +165,7 @@ body {
     color: #fff;
     padding: 20px 45px 20px 20px;
     backdrop-filter: blur(4px);
+    background-color: rgba(255,255,255,0.1);
   }
   label {
     display: block;
