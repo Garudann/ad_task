@@ -2,62 +2,38 @@
 session_start();
 include('db.php');
 
-function password_verification($inputPassword, $storedPassword) {
-    return hash_equals($inputPassword, $storedPassword);
-}
-
 if (isset($_POST['signin'])) {
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
 
-    // Just basic debugging (optional)
-    echo "<script>
-        console.log('Username: " . addslashes($username) . "');
-        console.log('Password: " . addslashes($password) . "');
-        console.log('Profile Value: " . addslashes($_SESSION['profile']) . "');
-    </script>";
-
     if (empty($username) || empty($password)) {
-        echo "<script>alert('Please fill in all fields.');</script>";
-        echo "<script>window.location.href = 'index.php';</script>";
+        $_SESSION['error'] = 'Please fill in all fields.';
+        header('Location: index.php');
         exit();
     }
 
     try {
-        $sql = "SELECT * FROM users WHERE Username = :Username";
+        $sql = "SELECT * FROM users WHERE username = :username";
         $query = $dbh->prepare($sql);
-        $query->bindParam(':Username', $username, PDO::PARAM_STR);
+        $query->bindParam(':username', $username, PDO::PARAM_STR);
         $query->execute();
 
         $result = $query->fetch(PDO::FETCH_ASSOC);
 
-        if ($result && password_verification($password, $result['Password'])) {
-            // ✅ Set session values *after* you get the DB result
-            $_SESSION['login'] = $result['Username'];
+        if ($result && $password === $result['password']) {
+            $_SESSION['login'] = $result['username'];
             $_SESSION['profile'] = $result['profile'];
-
-            // Optional: display on-screen for testing
-            echo "<h1>" . htmlspecialchars($result['Username']) . "</h1>";
-            echo "<h1>Profile: " . htmlspecialchars($result['profile']) . "</h1>";
-
-            echo "<script>
-                console.log('Login successful for user: " . addslashes($username) . "');
-                window.location.href = 'dashboard.php';
-            </script>";
+            header('Location: dashboard.php');
             exit();
         } else {
-            echo "<script>
-                alert('Invalid username or password.');
-                window.location.href = 'index.php';
-            </script>";
+            $_SESSION['error'] = 'Invalid username or password.';
+            header('Location: index.php');
             exit();
         }
     } catch (PDOException $e) {
-        echo "<script>
-            alert('Database error occurred.');
-            console.error('" . addslashes($e->getMessage()) . "');
-            window.location.href = 'index.php';
-        </script>";
+        error_log("Database error: " . $e->getMessage());
+        $_SESSION['error'] = 'Database error occurred.';
+        header('Location: index.php');
         exit();
     }
 }

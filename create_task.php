@@ -80,7 +80,7 @@
             <button onclick="closePopup()">No</button>
         </div>
     </div>
-    <h2>Create New Task</h2>
+    <h2 style="color: white;">Create New Task</h2>
     <form action="create_task.php" method="POST">
         <label>Task Created By:</label><br>
         <input type="text" name="task_created_by" class="author" 

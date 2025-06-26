@@ -1,9 +1,9 @@
 <?php
 // Database credentials
 $server = '127.0.0.1';
-$dbname = 'project1';
+$dbname = 'task_tracker';
 $username = 'root';
-$password = '';
+$password = '1234';
 
 try {
     $dbh = new PDO("mysql:host=$server;dbname=$dbname", $username, $password);
