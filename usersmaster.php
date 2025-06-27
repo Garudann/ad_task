@@ -47,7 +47,7 @@ $results = $query->fetchAll(PDO::FETCH_OBJ);
             width: 100%;
             border-collapse: collapse;
             background-color: transperant;
-            border: 2px solid #cc0000; /* 🔥 This adds the outside border */
+            border: 2px solid #cc0000;
             border-radius: 10px;
             overflow: hidden;
         }
@@ -55,7 +55,7 @@ $results = $query->fetchAll(PDO::FETCH_OBJ);
         th, td {
             padding: 15px;
             text-align: left;
-            border: 1px solid #39557a; /* 👈 Cell borders */
+            border: 1px solid #39557a;
         }
 
         th {
